@@ -5,7 +5,6 @@ the_board = {'top-l':' ', 'top-m':' ','top-r':' ',
              'low-l':' ', 'low-m':' ','low-r':' '}
 current_letter ='X'
 game_still_going =True
-winner = None
 
 # to display the board
 def display_board(board):
@@ -30,14 +29,11 @@ def play_game():
         handle_moves(current_letter)
 
         # check if game over
-        if_game_over(the_board)
+        if_game_over(the_board, current_letter)
 
         # change turn
         flip_player()
-        if winner == 'X' or winner == 'O':
-            print(winner + ' won.')
-        elif winner == None:
-            print('Tie.')
+        
     return
 
 
@@ -59,17 +55,17 @@ def handle_moves(letter):
 
 
 # to check if the game is over (if there is a winner or its a tie)
-def if_game_over(board):
-    winning_positions =[['top-l', 'top-m', 'top-r'],
-                        ['mid-l', 'mid-m', 'mid-r'],
-                        ['low-l', 'low-m', 'low-r'],
-                        ['top-l', 'mid-l', 'low-l'],
-                        ['top-m', 'mid-m', 'low-m'],
-                        ['top-r', 'mid-r', 'low-r'],
-                        ['top-l', 'mid-m', 'low-r'],
-                        ['top-r', 'mid-m', 'low-']]
-    if winning_positions in board.keys():
-       print('winner')
+def if_game_over(board, letter):
+    if (board['top-l'] == board['top-m'] == board['top-r']!=' ' or 
+    board['mid-l'] == board['mid-m'] == board['mid-r']!=' ' or 
+    board['low-l'] == board['low-m'] == board['low-r']!=' ' or  
+    board['top-l'] == board['mid-l'] == board['low-l']!=' ' or 
+    board['top-m'] == board['mid-m'] == board['low-m']!=' ' or 
+    board['top-r'] == board['mid-r'] == board['low-r']!=' ' or 
+    board['top-l'] == board['mid-m'] == board['low-r']!=' ' or 
+    board['top-r'] == board['mid-m'] == board['low-l']!=' '):
+        print('winner is '+letter)
+        
 
 # change turns
 def flip_player():
@@ -91,19 +87,3 @@ play_game()
 
 
 
-
-
-
-
-
-
-# board
-# display board
-# play game
-# turn handling
-# check who won
-    # check rows
-    # check columns
-    # check diagonals
-# check tie
-#     
