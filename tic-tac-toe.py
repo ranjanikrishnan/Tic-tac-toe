@@ -35,10 +35,10 @@ def play_game():
         # change turn
         flip_player()        
     
-    if winner == "X" or winner == "O":
-        print(winner + " won.")
+    if winner == 'X' or winner == 'O':
+        print(winner + ' won the game.')
     elif winner == None:
-        print("Tie.")
+        print('Its a Tie.')
 
 # to handle moves between the two players
 def handle_moves(letter):
@@ -70,9 +70,10 @@ def if_game_over(board, letter):
     board['top-r'] == board['mid-m'] == board['low-l']!=' '):
         winner = letter
         game_still_on = False
-    else:
-        winner = None    
-        return(winner)
+    elif ' ' not in board.values():
+        winner = None 
+        game_still_on = False   
+    return(winner)
         
 
 # change turns
