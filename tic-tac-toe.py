@@ -4,7 +4,8 @@ the_board = {'top-l':' ', 'top-m':' ','top-r':' ',
              'mid-l':' ', 'mid-m':' ','mid-r':' ',
              'low-l':' ', 'low-m':' ','low-r':' '}
 current_letter ='X'
-game_still_going =True
+winner = None
+game_still_on = True
 
 # to display the board
 def display_board(board):
@@ -25,17 +26,19 @@ def who_starts(player_one, player_two):
 def play_game():
     # display initial board positions
     display_board(the_board)  
-    while game_still_going:
+    while game_still_on:
         handle_moves(current_letter)
 
         # check if game over
         if_game_over(the_board, current_letter)
 
         # change turn
-        flip_player()
-        
-    return
-
+        flip_player()        
+    
+    if winner == "X" or winner == "O":
+        print(winner + " won.")
+    elif winner == None:
+        print("Tie.")
 
 # to handle moves between the two players
 def handle_moves(letter):
@@ -56,6 +59,7 @@ def handle_moves(letter):
 
 # to check if the game is over (if there is a winner or its a tie)
 def if_game_over(board, letter):
+    global winner, game_still_on
     if (board['top-l'] == board['top-m'] == board['top-r']!=' ' or 
     board['mid-l'] == board['mid-m'] == board['mid-r']!=' ' or 
     board['low-l'] == board['low-m'] == board['low-r']!=' ' or  
@@ -64,7 +68,11 @@ def if_game_over(board, letter):
     board['top-r'] == board['mid-r'] == board['low-r']!=' ' or 
     board['top-l'] == board['mid-m'] == board['low-r']!=' ' or 
     board['top-r'] == board['mid-m'] == board['low-l']!=' '):
-        print('winner is '+letter)
+        winner = letter
+        game_still_on = False
+    else:
+        winner = None    
+        return(winner)
         
 
 # change turns
