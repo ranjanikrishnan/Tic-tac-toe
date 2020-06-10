@@ -1,12 +1,4 @@
 import random
-
-the_board = {'top-l':' ', 'top-m':' ','top-r':' ',
-             'mid-l':' ', 'mid-m':' ','mid-r':' ',
-             'low-l':' ', 'low-m':' ','low-r':' '}
-current_letter ='X'
-winner = None
-game_still_on = True
-
 # to display the board
 def display_board(board):
     print(board['top-l']+'|'+ board['top-m'] + '|' + board['top-r'])
@@ -87,12 +79,16 @@ def flip_player():
     current_letter = 'X'
      
 
-player_one = input('Enter first player name:')
-player_two = input('Enter second player name:')
-# print('Player one : '+player_one +'\n'+ 'Player two : '+player_two)
+if __name__== '__main__' :
+    the_board = {'top-l':' ', 'top-m':' ','top-r':' ',
+             'mid-l':' ', 'mid-m':' ','mid-r':' ',
+             'low-l':' ', 'low-m':' ','low-r':' '}
+    current_letter ='X'
+    winner = None
+    game_still_on = True
+    player_one = input('Enter first player name:')
+    player_two = input('Enter second player name:')
+    # print('Player one : '+player_one +'\n'+ 'Player two : '+player_two)
 
-who_starts(player_one, player_two)
-play_game()
-
-
-
+    who_starts(player_one, player_two)
+    play_game()
