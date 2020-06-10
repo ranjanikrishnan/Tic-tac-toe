@@ -1,7 +1,7 @@
 # Tic-tac-toe
 Game of Tic-Tac-Toe implemented using Python
 
-![](sample-game.gif)
+![](docs/sample-game.gif)
 
 ## Prerequisites
 - Python 3.7.5
@@ -25,5 +25,5 @@ Game of Tic-Tac-Toe implemented using Python
         ```
 - Execute the code as follows:
     ```
-    python tic-tac-toe.py
+    python src/tic-tac-toe.py
     ```
