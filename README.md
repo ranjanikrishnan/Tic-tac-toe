@@ -1,5 +1,29 @@
 # Tic-tac-toe
 Game of Tic-Tac-Toe implemented using Python
 
-![Alt text](./tic_tac_toe_1.png)
-![Alt text](./tic_tac_toe_2.png)
+![](sample-game.gif)
+
+## Prerequisites
+- Python 3.7.5
+
+## Setup
+- Clone the repo
+    ```
+    git clone https://github.com/ranjanikrishnan/Tic-tac-toe.git
+    ```
+
+- Install the dependencies 
+    ```
+    pip install -r requirements.txt
+    ```
+    - Ideally use a virtual environment (Pipenv)
+        ```
+        pipenv install
+        ```
+        ```
+        pipenv shell
+        ```
+- Execute the code as follows:
+    ```
+    python tic-tac-toe.py
+    ```
